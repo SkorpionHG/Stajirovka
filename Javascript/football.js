@@ -6,7 +6,27 @@ function GenerateNumLine() {
         line += Math.round(Math.random()).toString();
     }
 
-    return line;
+    if(CheckForOnesAndZeros === true) {
+        return line;
+    }
+    else GenerateNumLine();
+}
+
+function CheckForOnesAndZeros(line) {
+    let has0 = false;
+    let has1 = false;
+    for (let i = 0; i < line.length; i++) {
+        if(line[i] === "0" && has0 === false) {
+            has0 = true;
+        }
+        else if (line[i] === "1" && has1 === false) {
+            has1 = true;
+        }
+        if(has0 === true && has1 === true) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function CheckIfSituationIsDangerous(line) {
@@ -21,7 +41,7 @@ function CheckIfSituationIsDangerous(line) {
                 count = 0;
                 break;
         }
-        if(count == 7) {
+        if(count === 7) {
             dangerous = true;
             break;
         }
@@ -33,5 +53,4 @@ function CheckIfSituationIsDangerous(line) {
 }
 
 let line = GenerateNumLine();
-console.log(line);
 console.log(CheckIfSituationIsDangerous(line));
