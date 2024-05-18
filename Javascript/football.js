@@ -6,10 +6,10 @@ function GenerateNumLine() {
         line += Math.round(Math.random()).toString();
     }
 
-    if(CheckForOnesAndZeros === true) {
+    if(CheckForOnesAndZeros(line) === true) {
         return line;
     }
-    else GenerateNumLine();
+    return GenerateNumLine();
 }
 
 function CheckForOnesAndZeros(line) {
@@ -53,4 +53,5 @@ function CheckIfSituationIsDangerous(line) {
 }
 
 let line = GenerateNumLine();
+console.log(line)
 console.log(CheckIfSituationIsDangerous(line));
