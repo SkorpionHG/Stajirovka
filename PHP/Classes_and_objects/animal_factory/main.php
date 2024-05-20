@@ -1,9 +1,6 @@
 <?php
 
-include 'manager.php';
-include 'animals.php';
-include 'zoowatcher.php';
-include 'cages.php';
+include 'classes.php';
 
 $manager = new Manager();
 $zooWatcher = new ZooWatcher();
