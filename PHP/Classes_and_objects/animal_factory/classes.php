@@ -164,8 +164,9 @@ class Cages {
 }
 
 // Класс смотрителя зоопарка
+
 class ZooWatcher {
-    protected Animals $_animal;
+    protected ?Animals $_animal;
 
     public function ReciveAnimal(Animals $animal) {
         if(!isset($this->_animal)) {

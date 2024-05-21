@@ -3,7 +3,7 @@
 $array = [];
 
 for ($i = 0; $i < rand(20, 100); $i++) {
-    array_push($array , rand(1, 1000));
+    array_push($array, rand(1, 1000));
 }
 
 function mergeSort($array) {
