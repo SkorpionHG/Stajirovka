@@ -168,8 +168,11 @@ class ZooWatcher {
     protected Animals $_animal;
 
     public function ReciveAnimal(Animals $animal) {
-        echo "Смотрящий получил: " . $animal->ReturnString() . "\n";
-        $this->_animal = $animal;
+        if(!isset($this->_animal)) {
+            echo "Смотрящий получил: " . $animal->ReturnString() . "\n";
+            $this->_animal = $animal;
+        }
+        else echo "Смотрящий уже работает c другим животным\n";
     }
 
     public function PutInCage(Cage $cage) {
@@ -177,6 +180,7 @@ class ZooWatcher {
             if(isset($this->_animal)) {
                 echo $this->_animal->ReturnString() . " отправлено в клетку\n";
                 $cage->Put($this->_animal);
+                $this->_animal = null;
             }
             else echo "Нет животного для передачи в клетку\n";
         }
@@ -185,9 +189,12 @@ class ZooWatcher {
     public function GetAnimalFromCage(string $kingdom, string $animal_name, bool $hasTail, int $legCount, Cage $cage) {
         $animal = $cage->GetAnimal($kingdom, $animal_name, $hasTail, $legCount);
         if(isset($animal)) {
-            $this->_animal = $animal;
-            echo "Смотрящий получил из клетки для царства (" . $cage->GetKingdom() . ") - " . $animal->ReturnString() . "\n";
-            return $animal;
+            if(!isset($this->_animal)) {
+                $this->_animal = $animal;
+                echo "Смотрящий получил из клетки для царства (" . $cage->GetKingdom() . ") - " . $animal->ReturnString() . "\n";
+                return $animal;
+            }
+            else echo "Смотрящий уже работает c другим животным\n";
         }
         else echo "Животное c заданными параметрами не найдено\n";
     }
