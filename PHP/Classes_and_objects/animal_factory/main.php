@@ -26,6 +26,12 @@ $manager->ReciveAnimal($anaconda);
 $manager->PassToZooWatcher($zooWatcher);
 $zooWatcher->PutInCage($cages->GetCage($anaconda->GetKingdom()));
 
-echo "<pre>";
+$zooWatcher->GetAnimalFromCage($anaconda->GetKingdom(), 
+    $anaconda->GetAnimalName(), 
+    $anaconda->GetTails(), 
+    $anaconda->GetLegCount(), 
+    $cages->GetCage($anaconda->GetKingdom()));
+
+//echo "<pre>";
 //print_r($cages->GetAllCages());
-echo "</pre>";
+//echo "</pre>";

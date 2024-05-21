@@ -111,16 +111,20 @@ class Cage{
     }
 
     public function GetAnimal(string $kingdom, string $animal_name, bool $hasTail, int $legCount) {
-        foreach($this->inhabitants as $an) {
-            if($an->GetKingdom() === $kingdom && 
-            $an->GetAnimalName() === $animal_name && 
-            $an->GetTails() === $hasTail && 
-            $an->GetLegCount() === $legCount) {
-                return $an;
+        for($i = 0; $i <= count($this->inhabitants); $i++) {
+            if($this->inhabitants[$i]->GetKingdom() === $kingdom &&
+            $this->inhabitants[$i]->GetAnimalName() === $animal_name && 
+            $this->inhabitants[$i]->GetTails() === $hasTail && 
+            $this->inhabitants[$i]->GetLegCount() === $legCount) {
+                $animal = $this->inhabitants[$i];
+                unset($this->inhabitants[$i]);
+                echo "Животное (" . $animal->ReturnString() . ") было извлечено из клетки\n";
+                return $animal;
+                break;
             }
         }
-        unset($an);
         echo "Животное c заданными параметрами не найдено\n";
+        return null;
     }
 
     public function GetInhabitants() {
@@ -151,6 +155,7 @@ class Cages {
         }
         unset($c);
         echo "Клетка для царства " . $kingdom . " не найдена\n";
+        return null;
     }
 
     public function GetAllCages() {
@@ -159,7 +164,6 @@ class Cages {
 }
 
 // Класс смотрителя зоопарка
-
 class ZooWatcher {
     protected Animals $_animal;
 
@@ -169,15 +173,23 @@ class ZooWatcher {
     }
 
     public function PutInCage(Cage $cage) {
-        if($this->_animal != null) {
-            echo $this->_animal->ReturnString() . " отправлено в клетку\n";
-            $cage->Put($this->_animal);
+        if(isset($cage)) {
+            if(isset($this->_animal)) {
+                echo $this->_animal->ReturnString() . " отправлено в клетку\n";
+                $cage->Put($this->_animal);
+            }
+            else echo "Нет животного для передачи в клетку\n";
         }
-        else echo "Нет животного для передачи в клетку\n";
     }
 
     public function GetAnimalFromCage(string $kingdom, string $animal_name, bool $hasTail, int $legCount, Cage $cage) {
-        return $cage->GetAnimal($kingdom, $animal_name, $hasTail, $legCount);
+        $animal = $cage->GetAnimal($kingdom, $animal_name, $hasTail, $legCount);
+        if(isset($animal)) {
+            $this->_animal = $animal;
+            echo "Смотрящий получил из клетки для царства (" . $cage->GetKingdom() . ") - " . $animal->ReturnString() . "\n";
+            return $animal;
+        }
+        else echo "Животное c заданными параметрами не найдено\n";
     }
 }
 
