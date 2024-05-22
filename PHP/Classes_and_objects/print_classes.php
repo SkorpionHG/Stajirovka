@@ -7,9 +7,7 @@ class TextOutput{
         $this->_printvalue = $printvalue;
     }
 
-    public function PrintValue() {
-        echo "Выводим: " . $this->_printvalue . "\n";
-    }
+    public function PrintValue() {}
 }
 
 class ScreenOutput extends TextOutput{
@@ -25,9 +23,6 @@ class PrinterOutput extends TextOutput{
 }
 
 $text = "какой-то текст";
-
-$to = new TextOutput($text);
-$to->PrintValue();
 
 $so = new ScreenOutput($text);
 $so->PrintValue();

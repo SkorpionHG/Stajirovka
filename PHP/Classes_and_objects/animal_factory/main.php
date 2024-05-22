@@ -11,10 +11,10 @@ $cages->CreateNewCage("Птицы");
 $cages->CreateNewCage("Рыбы");
 $cages->CreateNewCage("Рептилии");
 
-$vorobei = new Birds("воробей", true, 2, 2);
-$manager->ReciveAnimal($vorobei);
+$sparrow = new Birds("воробей", true, 2, 2);
+$manager->ReciveAnimal($sparrow);
 $manager->PassToZooWatcher($zooWatcher);
-$zooWatcher->PutInCage($cages->GetCage($vorobei->GetKingdom()));
+$zooWatcher->PutInCage($cages->GetCage($sparrow->GetKingdom()));
 
 $eagle = new Birds("Орел", true, 2, 2);
 $manager->ReciveAnimal($eagle);
@@ -31,6 +31,6 @@ $zooWatcher->GetAnimalFromCage($anaconda->GetKingdom(),
     $anaconda->GetTails(), 
     $anaconda->GetLegCount(), 
     $cages->GetCage($anaconda->GetKingdom()));
-echo "<pre>";
-print_r($cages->GetAllCages());
-echo "</pre>";
+//echo "<pre>";
+//print_r($cages->GetAllCages());
+//echo "</pre>";

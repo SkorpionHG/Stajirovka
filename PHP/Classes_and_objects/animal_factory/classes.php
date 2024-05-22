@@ -47,6 +47,10 @@ class Mammals extends Animals {
     public function ReturnString() {
         return "Млекопитаюшее: " . $this->_animal_name;
     }
+
+    public function GetFur() {
+        return $this->_hasFur;
+    }
 }
 
 class Birds extends Animals {
@@ -59,6 +63,10 @@ class Birds extends Animals {
 
     public function ReturnString() {
         return "Птица: " . $this->_animal_name;
+    }
+
+    public function GetWingCount() {
+        return $this->_wingCount;
     }
 }
 
@@ -73,6 +81,10 @@ class Fish extends Animals {
     public function ReturnString() {
         return "Рыба: " . $this->_animal_name;
     }
+
+    public function GetFinCount() {
+        return $this->_finCount;
+    }
 }
 
 class Reptiles extends Animals {
@@ -85,6 +97,10 @@ class Reptiles extends Animals {
 
     public function ReturnString() {
         return "Рептилия: " . $this->_animal_name;
+    }
+
+    public function GetVenomous() {
+        return $this->_isVenomous;
     }
 }
 
