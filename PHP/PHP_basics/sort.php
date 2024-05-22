@@ -54,8 +54,17 @@ function merge($left, $right) {
     return $result;
 }
 
+echo "Изначальный массив: ";
+
+foreach($array as $arr) {
+    echo $arr . " ";
+}
+echo "\n";
+
 $array = mergeSort($array);
 
-echo "<pre>";
-print_r($array);
-echo "</pre>";
+echo "Отсортированный массив: ";
+
+foreach($array as $arr) {
+    echo $arr . " ";
+}

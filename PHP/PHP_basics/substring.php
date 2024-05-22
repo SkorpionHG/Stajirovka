@@ -15,9 +15,15 @@ foreach ($main_array as $v) {
         $array_B[] = $v;
     }
 }
-unset($v);
  
-echo "<pre>";
-print_r($array_A);
-print_r($array_B);
-echo "</pre>";
+echo "массив A: ";
+
+foreach($array_A as $arr) {
+    echo $arr . " ";
+}
+
+echo "\nмассив B: ";
+
+foreach($array_B as $arr) {
+    echo $arr . " ";
+}
