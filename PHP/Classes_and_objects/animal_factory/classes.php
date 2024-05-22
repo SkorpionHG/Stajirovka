@@ -15,6 +15,8 @@ abstract class Animals {
         $this->_legCount = $legCount;
     }
 
+    abstract public function ReturnString();
+
     public function GetKingdom() {
         return $this->_kingdom;
     }
@@ -30,8 +32,6 @@ abstract class Animals {
     public function GetLegCount() {
         return $this->_legCount;
     }
-
-    abstract public function ReturnString();
 }
 
 // Классы для разных видов животных

@@ -19,6 +19,7 @@ function countPairs($array) {
             $group[$value] = 1;
         }
     }
+    unset($value);
 
     foreach ($group as $key => $value) {
         if ($value > 1) {
