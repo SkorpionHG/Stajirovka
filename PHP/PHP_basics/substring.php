@@ -9,10 +9,10 @@ $substring = "asf";
 
 foreach ($main_array as $v) {
     if (str_contains($v, $substring)) {
-        array_push($array_A, $v);
+        $array_A[] = $v;
     }
     else {
-        array_push($array_B, $v);
+        $array_B[] = $v;
     }
 }
 unset($v);

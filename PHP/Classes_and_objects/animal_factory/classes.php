@@ -101,7 +101,7 @@ class Cage{
     public function Put (Animals $animal) {
         try {
             if($animal->GetKingdom() === $this->_kingdom) {
-                array_push($this->inhabitants, $animal);
+                $this->inhabitants[] = $animal;
             }
             else throw new Exception("Неверно задано царство животного\n");
         } 
@@ -143,7 +143,7 @@ class Cages {
 
     public function CreateNewCage(string $kingdom) {
         $cage = new Cage($kingdom);
-        array_push($this->cages, $cage);
+        $this->cages[] = $cage;
         echo "Создана клетка для царства: " . $kingdom . "\n";
     }
 

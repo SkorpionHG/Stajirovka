@@ -3,7 +3,7 @@
 $array = [];
 
 for ($i = 0; $i < rand(20, 100); $i++) {
-    array_push($array, rand(1, 1000));
+    $array[] = rand(1, 1000);
 }
 
 function mergeSort($array) {
@@ -54,7 +54,7 @@ function merge($left, $right) {
     return $result;
 }
 
-$array = mergeSort($array );
+$array = mergeSort($array);
 
 echo "<pre>";
 print_r($array);

@@ -15,3 +15,7 @@ if(strlen($name) % 2 == 0) {
 else {
     echo "Boy!";
 }
+
+echo "<pre>";
+print_r($alphas);
+echo "</pre>";

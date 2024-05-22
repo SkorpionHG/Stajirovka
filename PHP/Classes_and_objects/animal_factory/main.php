@@ -31,6 +31,6 @@ $zooWatcher->GetAnimalFromCage($anaconda->GetKingdom(),
     $anaconda->GetTails(), 
     $anaconda->GetLegCount(), 
     $cages->GetCage($anaconda->GetKingdom()));
-//echo "<pre>";
-//print_r($cages->GetAllCages());
-//echo "</pre>";
+echo "<pre>";
+print_r($cages->GetAllCages());
+echo "</pre>";
